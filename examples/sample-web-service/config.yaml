@@ -1,0 +1,49 @@
+# Sample Web Service Configuration
+project:
+  type: "web-service"
+  description: "Web サービス要件定義のサンプルプロジェクト"
+  
+teams:
+  frieren-team:
+    name: "フリーレンチーム"
+    description: "一級魔法使いによる高品質要件定義チーム"
+    available: true
+    
+  professional-team:
+    name: "プロフェッショナルチーム"
+    description: "ビジネス向け標準チーム"
+    available: false
+    note: "今後実装予定"
+    
+  custom:
+    name: "カスタムチーム"
+    description: "独自キャラクター設定"
+    available: false
+    note: "上級者向け機能"
+
+sample_projects:
+  - name: "オンライン図書館"
+    description: "本の検索・予約・貸出管理システム"
+    complexity: "medium"
+    
+  - name: "ECマーケットプレイス"
+    description: "ユーザー間の商品売買プラットフォーム"
+    complexity: "high"
+    
+  - name: "タスク管理ツール"
+    description: "チーム向けタスク管理アプリケーション"
+    complexity: "low"
+    
+  - name: "オンライン学習"
+    description: "動画配信型の学習プラットフォーム"
+    complexity: "high"
+
+default_settings:
+  git_worktree: true
+  auto_commit: true
+  sync_interval: 300  # seconds
+  
+requirements:
+  git_version: "2.20"
+  python_version: "3.8"
+  claude_code: "latest"

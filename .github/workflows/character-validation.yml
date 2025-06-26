@@ -1,0 +1,38 @@
+name: Character Validation
+
+on:
+  push:
+    paths:
+      - 'templates/character-configs/**/*.yaml'
+  pull_request:
+    paths:
+      - 'templates/character-configs/**/*.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+    
+    - name: Validate Frieren team characters
+      run: |
+        for char in frieren genau zenze lernen; do
+          echo "Validating $char..."
+          python scripts/character-validator.py --team frieren-team --character $char
+        done
+    
+    - name: Check for new characters
+      run: |
+        echo "Checking for new character files..."
+        find templates/character-configs -name "*.yaml" -type f
