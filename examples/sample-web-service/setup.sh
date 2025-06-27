@@ -70,7 +70,7 @@ git init -b main
 
 # 2. テンプレートファイル配置
 echo "📋 プロジェクトテンプレート配置..."
-cp -r ../requirements-engineering-multiagent/examples/sample-web-service/project-template/* .
+cp -r ../sample-web-service/project-template/* .
 mkdir -p shared .claude
 
 # プロジェクト名をREADMEに反映
@@ -244,7 +244,7 @@ for agent in "${!agent_to_character[@]}"; do
     git worktree add -b "${agent}" "../${agent}"
     
     # キャラクター設定適用
-    python3 ../requirements-engineering-multiagent/scripts/generate-claude-configs.py \
+    python3 ../../requirements-engineering-multiagent/scripts/generate-claude-configs.py \
         --team "$CHARACTER_TEAM" \
         --character "$character" \
         --agent "$agent" \
